@@ -1,58 +1,70 @@
-**大牛直播 <a href="http://www.daniulive.com" target="_blank">www.daniulive.com</a>**
+**视沃科技-大牛直播SDK <a href="http://www.daniulive.com" target="_blank">daniulive.com</a>**
 
-专注、极致、智慧，国内外为数不多不依赖开源框架、跨平台(windows/android/iOS)、公网推送(支持rtmp)-播放(支持rtmp/rtsp)，业界**真正靠谱**的超低延迟(1秒左右)。
+专注、极致、智慧，国内外为数不多不依赖开源框架、跨平台(windows/android/iOS)、公网推送(支持rtmp)-转发-播放-录像(支持rtmp/rtsp)，**比快更快**，业界**真正靠谱**的超低延迟(真1秒，低延迟模式下200~400ms)。
 
-适用于**在线教育、智能可视门禁对讲、秀场直播、超低延迟娃娃机抓取播放方案、媒体移动直播、应急指挥调度(针对保险、城管、交警、消防、公安等职能管理部门的单兵应急执法系统)、可视化购物、远程专家诊断、可视化巡检、(如电信/电力线路/铁路沿线/水利设施/油田/消防设施巡检)、移动视频安防监控，企业内训、金融在线直播室、微信直播、监控对接、活动现场直播、游戏直播**等场景。
-  
-  SmarterStreaming, which is an excellent and powerful cross-platform Live Streaming publisher/playback SDK, based on RTMP/RTSP protocol, developed by daniulive.
+适用于**在线教育、无纸化推屏/会议、智慧教室、智能可视门禁对讲、[超低延迟娃娃机抓取播放方案](https://github.com/daniulive/SmarterStreaming/wiki/%E8%B6%85%E4%BD%8E%E5%BB%B6%E8%BF%9F%E5%A8%83%E5%A8%83%E6%9C%BA%E6%8A%93%E5%8F%96%E6%92%AD%E6%94%BE%E6%96%B9%E6%A1%88)、媒体移动直播、[应急指挥调度](https://github.com/daniulive/SmarterStreaming/wiki/%5B%E5%BA%94%E6%80%A5%E6%8C%87%E6%8C%A5%5D%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0android%E7%BB%88%E7%AB%AF%E5%92%8Cwindows%E6%8C%87%E6%8C%A5%E4%B8%AD%E5%BF%83%E5%AE%9E%E6%97%B6%E5%AF%B9%E8%AE%B2)(针对保险、城管、交警、消防、公安等职能管理部门的单兵应急执法系统)、可视化购物、远程专家诊断、可视化巡检、(如电信/电力线路/铁路沿线/水利设施/油田/消防设施巡检)、移动视频安防监控，企业内训、金融在线直播室、微信直播、监控对接、活动现场直播、游戏直播、秀场直播**等场景。
+
+[大牛直播SDK介绍PPT](http://218.25.89.108:8080/files/daniulive/ppt/%E8%A7%86%E6%B2%83%E7%A7%91%E6%8A%80-%E5%A4%A7%E7%89%9B%E7%9B%B4%E6%92%ADSDK%E4%BB%8B%E7%BB%8D_080202.pdf)
 
 For English introduction, please [click here](https://github.com/daniulive/SmarterStreaming/wiki/English-version);
 
-***For commercial support, please contact 89030985@qq.com.***
-
-**SmarterStreaming SDK可供个人学习之用，企业及商用需要经过授权**；
+**大牛直播SDK可供个人学习之用，企业及商用需要经过授权**(授权请联系 QQ:89030985 或 517631076 手机:130-7210-2209 或 135-6452-9354)；
 
 **[latest release note](https://github.com/daniulive/SmarterStreaming/wiki/release-note)**
+
+**[安卓无纸化推屏/会议Demo(V2)Android Studio工程)](http://218.25.89.108:8080/files/daniulive/Daniulive-Android%E6%97%A0%E7%BA%B8%E5%8C%96%E6%8E%A8%E5%B1%8FDemo-2018-03-02.zip)**
+
+**[android/iOS播放端录像、iOS转发抢先版](https://www.jianshu.com/p/f5bdb7accdcf)**
 
 ===========================
 
 **模块概览**
 
-<img src="http://player.daniulive.com:8080/files/image/大牛直播SDK0914.png" alt="一张图看懂大牛直播SDK" />
+<img src="http://player.daniulive.com:8080/files/image/大牛直播SDK.png" alt="一张图看懂大牛直播SDK" />
 
-- [x] [**Windows推流端-视频处理**] 屏幕/多摄像头/水印/遮挡区域多层自由合成模块；
+**Windows端**
 
-- [x] [**Windows推流端-音频处理**] 多路混音、回音消除、噪音抑制、自动增益、VAD检测模块；
+- [x] [推流SDK] rtmp推送SDK(支持同时推多路url)；
 
-- [x] [**Windows推流端-导播**] 数据源：1. rtmp/rtsp音视频流；2. 本地屏幕/摄像头/音频数据；**多路流合成一路**实时导播推送；
+- [x] [直播播放器SDK] rtmp/rtsp超低延迟直播播放器SDK，**播放和录像完全分离**，支持**直接拉流录像**;
 
-- [x] [**Windows推流端-连麦**] 以标准协议为基础，完美支持Windows连麦；
+- [x] [导播SDK] 数据源：1. rtmp/rtsp音视频流；2. 本地屏幕/摄像头/音频数据；3.本地flv文件；**多路流合成一路**实时导播推送；
 
-- [x] [**Windows多路流媒体转发模块**] 支持同时**多路拉取rtmp/rtsp流，并分别转发到服务器**；
+- [x] [连麦SDK] 以标准协议为基础，完美支持Windows连麦；
 
-- [x] [**Windows推流端**] rtmp推送模块(支持同时推多路url)；
+- [x] [多路流媒体转发SDK] 支持同时**多路拉取rtmp/rtsp流/本地flv文件，并分别转发到服务器**，支持转发过程中，拉取的rtsp/rtmp或本地flv文件实时内容切换；
 
-- [x] [**Windows推流端**] 实时**录像**模块/实时**快照**功能；
+- [x] [录像SDK] 实时**录像**模块/实时**快照**功能；
 
-- [x] [**Window播放器**] rtmp/rtsp超低延迟直播播放器，**播放和录像完全分离**，支持**直接拉流录像**;
+- [x] [点播播放器SDK] 支持本地flv文件播放(支持获取flv文件的duration(时长)；支持显示当前播放位置；支持开始播放或播放过程中seek(跳转播放位置)，**也许是行业内seek最快的flv点播播放器**)；
 
-- [x] [**Window互动**] Windows一对一互动(可windows与windows/android/iOS互动)；
+- [x] [互动SDK] Windows一对一互动(可windows与windows/android/iOS互动)；
 
-- [x] [**Android推流端**] Android屏幕、摄像头推流/录像模块;
+- [x] [推流端-视频处理] 屏幕/多摄像头/水印/遮挡区域多层自由合成模块；
 
-- [x] [**Android推流端**] Android回音消除、噪音抑制、自动增益、VAD检测模块；
+- [x] [推流端-音频处理] 多路混音、回音消除、噪音抑制、自动增益、VAD检测模块；
 
-- [x] [**Android播放器**] rtmp/rtsp超低延迟直播播放器;
+**Android端**
 
-- [x] [**Android互动**] Android一对一互动(可android与windows/android/iOS互动)；
+- [x] [推流端SDK] Android屏幕、摄像头RTMP推流/录像SDK;
 
-- [x] [**iOS推流端**] iOS摄像头推流/录像;
+- [x] [直播播放器SDK] rtmp/rtsp超低延迟直播播放器SDK;
 
-- [x] [**iOS播放器**] rtmp/rtsp超低延迟直播播放器;
+- [x] [录像SDK] 支持实时播放rtsp/rtmp流，并实时录像;
 
-- [x] [**iOS互动**] iOS一对一互动(可iOS与windows/android/iOS互动)；
+- [x] [互动SDK] Android一对一互动(可android与windows/android/iOS互动)；
 
-- [x] [**Server**] SmarterStreamServer。
+- [x] [推流端-音频处理] Android回音消除、噪音抑制、自动增益、VAD检测模块；
+
+**iOS端**
+
+- [x] [推流端SDK] iOS RTMP推流/录像;
+
+- [x] [直播播放器SDK] rtmp/rtsp超低延迟直播播放器SDK;
+
+- [x] [录像SDK] 支持实时播放rtsp/rtmp流，并实时录像;
+
+- [x] [转发SDK] 支持实时拉取的rtmp/rtsp流转发到指定rtmp url;
 
 **本地下载**
 
@@ -62,45 +74,57 @@ For English introduction, please [click here](https://github.com/daniulive/Smart
 
 或者直接从私有服务器下载(Windows提供C#/C++ demo, android提供eclipse demo，iOS提供xcode demo)：
 
+**V2抢先体验版本地下载(已经是最新库)**
+
+- [x] [SDK demo工程代码] [**安卓播放-录像-SDK-抢先体验版(V2)(eclipse工程)**](http://player.daniulive.com:8080/files/daniulive/beta/Daniulive-%E5%AE%89%E5%8D%93%E6%92%AD%E6%94%BE-%E5%BD%95%E5%83%8F-SDK-%E6%8A%A2%E5%85%88%E4%BD%93%E9%AA%8C%E7%89%88-2018-02-01.zip)
+
+- [x] [SDK demo工程代码] [**iOS播放-录像-转发-SDK-抢先体验版(V2)(xcode工程)**](http://player.daniulive.com:8080/files/daniulive/beta/Daniulive-IOS%E6%92%AD%E6%94%BE-%E5%BD%95%E5%83%8F-%E8%BD%AC%E5%8F%91-SDK-%E6%8A%A2%E5%85%88%E4%BD%93%E9%AA%8C%E7%89%88-2018-02-01.zip)
+
+- [x] [SDK demo工程代码] [**android推送、播放、一对一互动、后台推摄像头/屏幕Demo(V2)(Android Studio工程)**](http://player.daniulive.com:8080/files/daniulive/Daniulive-Android-SDK(V2)-AndroidStudio-2018-03-05.zip)
+
 **大牛直播产品demo本地下载**
 
-- [x] [demo测试程序] [Windows推送、播放、合成、导播、连麦Demo本地下载](http://218.25.89.108:8080/files/daniulive/windows-推送-播放版-2017-09-25.zip)
+- [x] [demo测试程序] [Windows推送、播放、合成、导播、连麦Demo(32位)本地下载](http://218.25.89.108:8080/files/daniulive/windows-%E6%8E%A8%E9%80%81-%E6%92%AD%E6%94%BE%E7%89%88-2018-03-05.zip)
 
-- [x] [SDK demo工程代码] [**Windows推流SDK(C++) Demo工程本地下载**](http://player.daniulive.com:8080/files/daniulive/WIN-%E6%8E%A8%E9%80%81SDK-CPP-Demo-2017-09-11.zip)
+- [x] [demo测试程序] [Windows推送、播放、合成、导播、连麦Demo(64位)本地下载](http://218.25.89.108:8080/files/daniulive/windows-%E6%8E%A8%E9%80%81-%E6%92%AD%E6%94%BE%E7%89%8864%E4%BD%8D-2018-03-05.zip)
 
-- [x] [SDK demo工程代码] [**Windows播放器SDK(C++) Demo工程本地下载**](http://player.daniulive.com:8080/files/daniulive/WIN-%E6%92%AD%E6%94%BE%E5%99%A8SDK-CPP-Demo-2017-09-11.zip)
+- [x] [SDK demo工程代码] [Windows推流SDK(C++) Demo工程本地下载](http://218.25.89.108:8080/files/daniulive/WIN-PublisherSDK-CPP-Demo-2018-03-05.zip)
 
-- [x] [SDK demo工程代码] [**Windows混流SDK(C++) Demo工程本地下载**](http://player.daniulive.com:8080/files/daniulive/WIN-%E6%B7%B7%E6%B5%81SDK-CPP-Demo-2017-09-11.zip)
+- [x] [SDK demo工程代码] [Windows播放器SDK(C++) Demo工程本地下载](http://218.25.89.108:8080/files/daniulive/WIN-PlayerSDK-CPP-Demo-2018-03-05.zip)
 
-- [x] [SDK demo工程代码] [**Windows C#版本推送、播放SDK Demo工程本地下载**](http://player.daniulive.com:8080/files/daniulive/Daniulive-Windows-C%23%E6%8E%A8%E9%80%81-%E6%92%AD%E6%94%BE-SDK-demo-2017-09-20.zip)
+- [x] [SDK demo工程代码] [Windows混流SDK(C++) Demo工程本地下载](http://218.25.89.108:8080/files/daniulive/WIN-MixStreamSDK-CPP-Demo-2018-03-05.zip)
 
-- [x] [SDK demo工程代码] [**android推送、播放、一对一互动SDK本地下载(eclipse工程)**](http://218.25.89.108:8080/files/daniulive/Daniulive-Android-SDK-2017-07-17.zip)
+- [x] [SDK demo工程代码] [Windows多路流媒体转发模块SDK(C++) Demo工程本地下载](http://218.25.89.108:8080/files/daniulive/WIN-RelaySDK-CPP-Demo-2018-03-05.zip)
 
-- [x] [SDK demo工程代码] [**iOS推送、播放SDK本地下载**](http://218.25.89.108:8080/files/daniulive/Daniulive-iOS-SDK-2017-07-20.zip)
+- [x] [SDK demo工程代码] [Windows C#版本推送SDK Demo工程本地下载](http://player.daniulive.com:8080/files/daniulive/windows/WIN-%E6%8E%A8%E9%80%81SDK-C%23-Demo-2017-10-31.zip)
 
-- [x] [SDK demo扩展工程代码] [android推送、播放SDK本地下载(android studio demo工程)](http://218.25.89.108:8080/files/daniulive/Daniulive-AndroidStudio-SDK-2017-08-14.zip)
+- [x] [SDK demo工程代码] [Windows C#版本播放SDK Demo工程本地下载](http://218.25.89.108:8080/files/daniulive/WIN-PlayerSDK-CPP-Demo-2018-03-05.zip)
+
+- [x] [SDK demo工程代码] [Windows C#多路流媒体转发模块SDK Demo工程本地下载](http://218.25.89.108:8080/files/daniulive/windows/WIN-%E8%BD%AC%E5%8F%91SDK-C%23-demo-2017-11-16.zip)
+
+- [x] [SDK demo工程代码] [**android推送、播放、一对一互动、后台推摄像头/屏幕Demo(eclipse工程)**](http://218.25.89.108:8080/files/daniulive/Daniulive-Android-SDK-2017-12-25.zip)
+
+- [x] [SDK demo工程代码] [**android推送、播放、一对一互动、后台推摄像头/屏幕Demo(V2接口，建议采用)(Android Studio工程)**](http://player.daniulive.com:8080/files/daniulive/Daniulive-Android-SDK(V2)-AndroidStudio-2018-03-05.zip)
+
+- [x] [SDK demo工程代码] [**iOS推送、播放SDK本地下载**](http://218.25.89.108:8080/files/daniulive/Daniulive-iOS-SDK-2017-12-22.zip)
 
 - [x] [SDK demo扩展工程代码] [Android美颜demo本地下载](http://player.daniulive.com:8080/files/daniulive/Daniulive-Android-Beauty-SmartPublisher-20170123.zip)
-
-- [x] [SDK demo扩展工程代码] [Android后台推送摄像头/屏幕数据demo本地下载](http://218.25.89.108:8080/files/daniulive/SmartServicePublisher.zip)
 
 **NOTE:** android平台，eclipse工程(**android推送、播放SDK本地下载(eclipse工程)**)的SDK每次release是确保同步更新的，android其他相关demo使用的SDK，请以eclipse工程内提供的SDK为准。
 
 **大牛直播SDK集成和调用说明**
 
+- [x] [**移动端SDK(V2)调用说明**](http://player.daniulive.com:8080/files/daniulive/sdk/%E8%A7%86%E6%B2%83%E7%A7%91%E6%8A%80-%E5%A4%A7%E7%89%9B%E7%9B%B4%E6%92%AD%E7%A7%BB%E5%8A%A8%E7%AB%AFSDK%28V2%29%E8%B0%83%E7%94%A8%E8%AF%B4%E6%98%8E2.5.pdf)
+
 - [x] [大牛直播Windows推流端SDK说明(C#版)](http://player.daniulive.com:8080/files/daniulive/SmartPublisherSDK%20C%23%E9%9B%86%E6%88%90%E8%AF%B4%E6%98%8E1.1.pdf)
 
-- [x] [大牛直播Windows播放端SDK说明(C#版)](http://player.daniulive.com:8080/files/daniulive/SmartPlayerSDK%20C%23%E9%9B%86%E6%88%90%E8%AF%B4%E6%98%8E1.1.pdf)
+- [x] [大牛直播Windows播放端SDK说明(C#版)](http://player.daniulive.com:8080/files/daniulive/windows/SmartPlayerSDK%20C%23%E9%9B%86%E6%88%90%E8%AF%B4%E6%98%8E1.3.pdf)
 
-- [x] [大牛直播Android推流端SDK说明](https://github.com/daniulive/SmarterStreaming/wiki/%E5%A4%A7%E7%89%9B%E7%9B%B4%E6%92%ADAndroid%E6%8E%A8%E6%B5%81%E7%AB%AFSDK%E8%AF%B4%E6%98%8E)
-
-- [x] [大牛直播Android播放端SDK说明](https://github.com/daniulive/SmarterStreaming/wiki/%E5%A4%A7%E7%89%9B%E7%9B%B4%E6%92%ADAndroid%E6%92%AD%E6%94%BE%E7%AB%AFSDK%E8%AF%B4%E6%98%8E)
-- [x] [大牛直播iOS推流端SDK说明](https://github.com/daniulive/SmarterStreaming/wiki/%E5%A4%A7%E7%89%9B%E7%9B%B4%E6%92%ADiOS%E6%8E%A8%E6%B5%81%E7%AB%AFSDK%E8%AF%B4%E6%98%8E)
-- [x] [大牛直播iOS播放端SDK说明](https://github.com/daniulive/SmarterStreaming/wiki/%E5%A4%A7%E7%89%9B%E7%9B%B4%E6%92%ADiOS%E6%92%AD%E6%94%BE%E7%AB%AFSDK%E8%AF%B4%E6%98%8E)
-
-- [x] [**移动端SDK调用说明下载**](http://218.25.89.108:8080/files/daniulive/SmarterStreaming%20SDK%E8%B0%83%E7%94%A8%E8%AF%B4%E6%98%8E2.3.pdf)
+- [x] [**移动端SDK(V1)调用说明**](http://218.25.89.108:8080/files/daniulive/%E8%A7%86%E6%B2%83%E7%A7%91%E6%8A%80-%E5%A4%A7%E7%89%9B%E7%9B%B4%E6%92%ADSDK%E8%B0%83%E7%94%A8%E8%AF%B4%E6%98%8E2.4.pdf)
 
 **大牛直播demo使用说明**
+
+- [x] [如何简单粗暴的测试Windows推送端和Windows播放器](https://github.com/daniulive/SmarterStreaming/wiki/%E5%A6%82%E4%BD%95%E7%AE%80%E5%8D%95%E7%B2%97%E6%9A%B4%E7%9A%84%E6%B5%8B%E8%AF%95Windows%E6%8E%A8%E9%80%81%E7%AB%AF%E5%92%8CWindows%E6%92%AD%E6%94%BE%E5%99%A8)
 
 - [x] [大牛直播Windows RTMP推流端使用说明](https://github.com/daniulive/SmarterStreaming/wiki/%E5%A4%A7%E7%89%9B%E7%9B%B4%E6%92%ADWindows-RTMP%E6%8E%A8%E6%B5%81%E7%AB%AF%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
 
@@ -173,7 +197,7 @@ For English introduction, please [click here](https://github.com/daniulive/Smart
 
 **Windows导播平台或多路合成、混音推流/录像**
 
-对应“SmartMixStreamDemo.exe” [点击下载](http://218.25.89.108:8080/files/daniulive/windows-推送-播放版-2017-09-25.zip)
+对应“SmartMixStreamDemo.exe” [点击下载](http://218.25.89.108:8080/files/daniulive/windows-推送-播放版-2017-12-27.zip)
 
 - [x] 支持“windows屏幕截取/摄像头推送录像”模块所有功能；
 - [x] 支持拉取rtmp流；
@@ -183,25 +207,16 @@ For English introduction, please [click here](https://github.com/daniulive/Smart
 - [x] 支持rtsp数据转rtmp推送出去；
 - [x] 音频混音同时选择“采集麦克风”+“采集扬声器”。
 
-**windows多路拉流转发模块**
+**windows/iOS拉流转发模块**
 
-对应“SmartStreamRelayDemo.exe” [点击下载](http://218.25.89.108:8080/files/daniulive/windows-推送-播放版-2017-09-25.zip)
+对应“SmartStreamRelayDemo.exe” [点击下载](http://218.25.89.108:8080/files/daniulive/windows-推送-播放版-2017-12-27.zip)
 
 - [x] [拉流]支持拉取rtsp流；
 - [x] [拉流]支持拉取rtmp流；
 - [x] [预览]支持拉取到的rtsp/rtmp随时本地预览、关闭预览；
 - [x] [拉流音频调节]支持拉取的rtsp/rtmp流静音；
+- [x] [url切换]**支持转发过程中，拉取的rtsp/rtmp或本地flv文件实时内容切换**；
 - [x] [转发]超低延迟转发拉取的rtsp/rtmp流到rtmp server。
-
-**windows播放器**
-
-- [x] 基于C++开发的低延迟低资源占用的windows cs架构的播放器（exe）；
-- [x] 对外提供C++/C#双重接口；
-- [x] 支持RTSP/RTMP协议封装；
-- [x] 支持player端截图；
-- [x] 支持player端录像（可只录像不播放，或只播放不录像，或同时）；
-- [x] 支持YUV/RGB数据回调；
-- [x] 支持时间戳回调；
 
 **android推流/iOS推流**
 
@@ -240,15 +255,17 @@ For English introduction, please [click here](https://github.com/daniulive/Smart
 - [x] 支持秒开模式；
 - [x] windows双击画面进入**全屏**模式；
 - [x] audio支持aac/speex/g.711；
-- [x] **windows播放端sdk支持回调编码过的音视频数据到上层；**.
-- [x] **android支持回调audio数据到上层（供二次处理之用）；**
-- [x] **android支持回调video YUV/RGB数据到上层（供二次处理之用）；**
+- [x] windows/iOS播放端sdk支持回调编码过的音视频数据(Video:H.264/YUV Audio:aac/speex/pcma/pcmu)到上层；
+- [x] android播放端sdk支持回调编码过的音视频数据(Video:YUV/RGB Audio:pcma/pcmu)到上层；
 - [x] 支持自定义播放布局;
 - [x] 音视频多种render机制;
 - [x] 支持播放过程中，'实时静音/取消静音';
-- [x] **支持播放url快速切换**；
+- [x] 支持播放段视频view实时旋转(0° 90° 180° 270°)；
+- [x] **支持播放url快速切换，同等配置的流，切换url依旧可以录制到同一个文件**；
 - [x] android/iOS支持软硬解码，业内真正靠谱的超低延迟、低资源占用播放rtsp/rtmp 1080p+；
-- [x] [快照]支持播放过程中，**随时快照**。
+- [x] [快照]支持播放/录像过程中，**随时快照**；
+- [x] [windows点播播放器]支持本地flv文件播放(支持获取flv文件的duration(时长)；支持显示当前播放位置；支持开始播放或播放过程中seek(跳转播放位置)，也许是行业内seek最快的flv点播播放器。)
+- [x] 支持针对类似于娃娃机直播方案的超低延迟模式设置(公网200~400ms)。
 
 **Web播放器在线测试**
 
@@ -258,8 +275,9 @@ http://player.daniulive.com:8080/files/SmartPlayer1Stream/SmartPlayer.html
 
 **windows/windows或windows/android/iOS一对一互动**
 
-- [x] [Windows]推送过程中，选择“回音消除”；
-- [x] [android] 可以边推送边播放，demo请参见 [https://github.com/daniulive/SmarterStreaming/tree/master/SourceCode/Android/SmartEchoCancellation](https://github.com/daniulive/SmarterStreaming/tree/master/SourceCode/Android/SmartEchoCancellation)
+- [x] [Windows]推送过程中，选择“回音消除”和“噪音抑制”；
+- [x] [android] 可以边推送边播放，demo请参见 [SmartEchoCancellationV2](http://player.daniulive.com:8080/files/daniulive/Daniulive-Android-SDK(V2)-AndroidStudio-2018-03-05.zip)
+- [x] [点击获取使用说明](https://github.com/daniulive/SmarterStreaming/wiki/%5B%E5%BA%94%E6%80%A5%E6%8C%87%E6%8C%A5%5D%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0android%E7%BB%88%E7%AB%AF%E5%92%8Cwindows%E6%8C%87%E6%8C%A5%E4%B8%AD%E5%BF%83%E5%AE%9E%E6%97%B6%E5%AF%B9%E8%AE%B2)
 
 **windows/windows或windows与android/iOS连麦**
 
@@ -267,16 +285,11 @@ http://player.daniulive.com:8080/files/SmartPlayer1Stream/SmartPlayer.html
 
 **[多对一实时通讯]**
 
+[点击获取使用说明](https://github.com/daniulive/SmarterStreaming/wiki/%5B%E5%BA%94%E6%80%A5%E6%8C%87%E6%8C%A5%5D%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0android%E7%BB%88%E7%AB%AF%E5%92%8Cwindows%E6%8C%87%E6%8C%A5%E4%B8%AD%E5%BF%83%E5%AE%9E%E6%97%B6%E5%AF%B9%E8%AE%B2)
+
 适用于应急指挥、公安巡检等，以移动单兵设备为采集载体，实时上传音视频数据到指挥中心，并实现指挥中心对现场的实时指导。
 
 您可以用网页进行播放测试：<a href="http://218.25.89.108:8080/files/SmartPlayer/SmartPlayer.html" target="_blank">http://218.25.89.108:8080/files/SmartPlayer/SmartPlayer.html</a>
-
-**[SmarterStreamServer]**
-
-- [x] 高并发，分布式部署，支持rtmp摄像机和采集设备完美对接，提供代建服务器或整套软硬件服务器方案；
-- [x] 高性能的流媒体服务器，标准rtmp输入，多种方式流输出（rtmp/hls），并同步保存采集端数据；
-- [x] 支持鉴权认证、各种信息展示；
-- [x] 点播服务器：满足录像文件点播需求。
 
 ## windows导播、推送端/android推流端/iOS推流端 ##
 
@@ -292,21 +305,15 @@ http://player.daniulive.com:8080/files/SmartPlayer1Stream/SmartPlayer.html
 
 <img src="http://player.daniulive.com:8080/files/daniulive/android_publisher_echocancellation.png" alt="android边推送边录像" />
 
-**4. iOS边推送边录像(支持纯音频推送和播放)：**
+**4. iOS播放-录像-转发一体：**
 
-<img src="http://218.25.89.108:8080/files/image/iOS_publisher.jpg" width="600" alt="iOS边推送边录像" />
-
-<img src="http://218.25.89.108:8080/files/image/iOS_publisher_2.jpg" width="600" alt="iOS边推送边录像2" />
-
-**5. iOS录像管理：**
-
-<img src="http://218.25.89.108:8080/files/image/iOS_recorder.JPG" width="600" alt="iOS录像管理" />
+<img src="http://218.25.89.108:8080/files/image/ios_relay.jpg" width="400" alt="iOS播放-录像-转发" />
 
 ## 播放展示 ##
 
 **1. Windows播放器：**
 
-<img src="http://218.25.89.108:8080/files/image/windowsplayer.jpg" width="600" alt="大牛直播Windows播放器" />
+<img src="http://218.25.89.108:8080/files/image/win_player.png" width="600" alt="大牛直播Windows播放器" />
 
 **2. Windows播放导播合成效果：**
 
@@ -319,14 +326,6 @@ http://player.daniulive.com:8080/files/SmartPlayer1Stream/SmartPlayer.html
 **4. iOS播放器：**
 
 <img src="http://218.25.89.108:8080/files/image/ios_player.jpg" width="600" alt="大牛直播iOS播放器" />
-
-**5. 海思板子（4核低端版，同时播放4路720P rtmp流）：**
-
-<img src="http://218.25.89.108:8080/files/image/box.png" width="800" alt="海思box播放" />
-
-## SmarterStreamServer url鉴权demo ##
-
-<img src="http://218.25.89.108:8080/files/image/url_generate.png" width="798" alt="url生成demo" />
 
 
 **[上层源码目录]**
@@ -362,6 +361,7 @@ android后台Service推送：SmartServicePublisherSDKDemo
 android一对一互动：SmartEchoCancellation
 android播放器：SmartPlayerSDKDemo
 iOS推送端：SmartiOSPublisher
+iOS转发端：SmartiOSRelayDemo
 iOS播放器：SmartiOSPlayer
  ```
 * 集成到自己工程，如何改名字（以推送端为例）：
@@ -379,19 +379,35 @@ android：strings.xml：
 
 ## 获取更多信息 ##
 
-商务合作：QQ：89030985
+商务合作：
+
+手机：130-7210-2209 或 135-6452-9354
+
+商务合作QQ：89030985
 <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=89030985&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:89030985:51" alt="点我在线商务咨询" title="点我在线商务咨询"/></a> 
 
-技术支持：QQ: 2679481035
+商务合作QQ：517631076
+<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=517631076&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:517631076:51" alt="点我在线商务咨询" title="点我在线商务咨询"/></a> 
+
+商务合作微信:
+
+<img src="http://218.25.89.108:8080/files/daniulive/image/shangwu_erweima.png" width="183" alt="商务合作微信" />
+
+
+技术支持QQ: 2679481035
 <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2679481035&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2679481035:51" alt="点我在线技术咨询" title="点我在线技术咨询"/></a>
+
+技术支持微信：
+
+<img src="http://218.25.89.108:8080/files/daniulive/image/jishu_erweima.png" width="183" alt="技术支持微信" />
 
 QQ群(大牛直播精英群)：[294891451](http://shang.qq.com/wpa/qunwpa?idkey=476a9cc05db0b2924530ccbbf4fae78fa485d39418ef79c8ab71b24a8fee8a48)
 
-<img src="http://218.25.89.108:8080/files/image/erweima2.png" width="302" alt="QQ交流群" />
+<img src="http://218.25.89.108:8080/files/image/erweima2.png" width="183" alt="QQ交流群" />
 
 QQ群(大牛直播技术交流群)：[499687479](http:////shang.qq.com/wpa/qunwpa?idkey=e7686f68a39bf1b95dc2ac3b775867efc7d3cbaf3596daf6e12bc1df21e1dc59)
 
-<img src="http://218.25.89.108:8080/files/image/erweima.png" width="302" alt="QQ交流群" />
+<img src="http://218.25.89.108:8080/files/image/erweima.png" width="183" alt="QQ交流群" />
 
 想了解更多信息，点击 
 [大牛直播十万个为什么](https://github.com/daniulive/SmarterStreaming/wiki/%E5%A4%A7%E7%89%9B%E7%9B%B4%E6%92%AD%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88)

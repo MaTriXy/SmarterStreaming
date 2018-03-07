@@ -59,7 +59,11 @@ public class SmartPlayer extends Activity {
 	
 	private int playBuffer = 200; // 默认200ms
 	
+	private boolean isLowLatency = false; //超低延时，默认不开启
+	
 	private boolean isFastStartup = true; // 是否秒开, 默认true
+	
+	private int rotate_degrees = 0;
 	
 	private boolean switchUrlFlag = false;
 	
@@ -75,6 +79,8 @@ public class SmartPlayer extends Activity {
 	Button btnCaptureImage;
 	Button btnFastStartup;
 	Button btnSetPlayBuffer;
+	Button btnLowLatency;
+	Button btnRotation;
 	Button btnSwitchUrl;
     TextView txtCopyright;
     TextView txtQQQun;
@@ -351,12 +357,42 @@ public class SmartPlayer extends Activity {
         	btnHardwareDecoder.setText("当前硬解码");
         }
       
+        LinearLayout LinearLayoutImage = new LinearLayout(this);
+        LinearLayoutImage.setOrientation(LinearLayout.HORIZONTAL);
+        LinearLayoutImage.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+        
         /*capture image button */
         btnCaptureImage = new Button(this);
         
         btnCaptureImage.setText("快照");
         btnCaptureImage.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-        lLinearLayout.addView(btnCaptureImage);
+        LinearLayoutImage.addView(btnCaptureImage);
+        
+        
+        btnRotation = new Button(this);
+    	
+    	if ( 0 == rotate_degrees )
+    	{
+    		btnRotation.setText("旋转90度");
+    	}
+    	else if ( 90 == rotate_degrees)
+    	{
+    		btnRotation.setText("旋转180度");
+    	}
+    	else if ( 180 == rotate_degrees)
+    	{
+    		btnRotation.setText("旋转270度");
+    	}
+    	else if ( 270 == rotate_degrees)
+    	{
+    		btnRotation.setText("不旋转");
+    	}
+    		
+    	btnRotation.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+    	LinearLayoutImage.addView(btnRotation);
+    	
+    	lLinearLayout.addView(LinearLayoutImage);
+        
         
         btnHardwareDecoder.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
         lLinearLayout.addView(btnHardwareDecoder);
@@ -372,6 +408,20 @@ public class SmartPlayer extends Activity {
     	btnSetPlayBuffer.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
     	bufferLinearLayout.addView(btnSetPlayBuffer);
     	
+    	btnLowLatency = new Button(this);
+    	
+    	if ( isLowLatency )
+    	{
+    		btnLowLatency.setText("正常延时");
+    	}
+    	else
+    	{
+    		btnLowLatency.setText("超低延时");
+    	}
+    	
+    	btnLowLatency.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+    	bufferLinearLayout.addView(btnLowLatency);
+    	
     	btnFastStartup = new Button(this);
     	
     	if ( isFastStartup )
@@ -386,6 +436,7 @@ public class SmartPlayer extends Activity {
     	btnFastStartup.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
     	bufferLinearLayout.addView(btnFastStartup);
     	
+ 	
     	lLinearLayout.addView(bufferLinearLayout);
     	
        // buffer setting--
@@ -411,6 +462,7 @@ public class SmartPlayer extends Activity {
         	btnHardwareDecoder.setEnabled(false);
         	
         	btnSetPlayBuffer.setEnabled(false);
+        	btnLowLatency.setEnabled(false);
         	btnFastStartup.setEnabled(false);
         	
         	btnStartStopPlayback.setText("停止播放 ");
@@ -422,6 +474,7 @@ public class SmartPlayer extends Activity {
         	btnHardwareDecoder.setEnabled(true);
         	
         	btnSetPlayBuffer.setEnabled(true);
+        	btnLowLatency.setEnabled(true);
         	btnFastStartup.setEnabled(true);
         	
         	btnStartStopPlayback.setText("开始播放 ");
@@ -530,9 +583,58 @@ public class SmartPlayer extends Activity {
     	 }
        });
         
+        
+        btnRotation.setOnClickListener(new Button.OnClickListener() 
+        { 
+       	  public void onClick(View v) { 
+       		 
+       		rotate_degrees += 90;
+       		rotate_degrees = rotate_degrees % 360;
+       		
+       		if ( 0 == rotate_degrees )
+        	{
+        		btnRotation.setText("旋转90度");
+        	}
+        	else if ( 90 == rotate_degrees)
+        	{
+        		btnRotation.setText("旋转180度");
+        	}
+        	else if ( 180 == rotate_degrees)
+        	{
+        		btnRotation.setText("旋转270度");
+        	}
+        	else if ( 270 == rotate_degrees)
+        	{
+        		btnRotation.setText("不旋转");
+        	}
+       		 		 
+    		if ( playerHandle != 0 )
+    		{
+    			libPlayer.SmartPlayerSetRotation(playerHandle, rotate_degrees);
+    		}
+    	 }
+       });
+        
         btnSetPlayBuffer.setOnClickListener(new Button.OnClickListener(){
         	public void onClick(View v) { 
         		PopSettingBufferDialog();
+        	}
+        });
+        
+        btnLowLatency.setOnClickListener(new Button.OnClickListener(){
+        	public void onClick(View v) {
+        		isLowLatency = !isLowLatency;
+        				
+        		if ( isLowLatency )
+        		{
+        			playBuffer = 0;
+        			Log.i(TAG, "low latency mode, set playBuffer to 0");
+        			btnLowLatency.setText("正常延时");
+        		}
+        		else
+        		{
+        			btnLowLatency.setText("超低延时");
+        		}
         	}
         });
         
@@ -570,6 +672,7 @@ public class SmartPlayer extends Activity {
             		  btnHardwareDecoder.setEnabled(true);
             		  
             		  btnSetPlayBuffer.setEnabled(true);
+            		  btnLowLatency.setEnabled(true);
                   	  btnFastStartup.setEnabled(true);
             		  
             		  libPlayer.SmartPlayerClose(playerHandle);	
@@ -593,7 +696,8 @@ public class SmartPlayer extends Activity {
 					  
             	      libPlayer.SmartPlayerSetSurface(playerHandle, sSurfaceView); 	//if set the second param with null, it means it will playback audio only..
             		  	
-            	      // libPlayer.SmartPlayerSetSurface(playerHandle, null); 
+					  
+            	      //libPlayer.SmartPlayerSetSurface(playerHandle, null); 
             	      
             	      // External Render test
             	      //libPlayer.SmartPlayerSetExternalRender(playerHandle, new RGBAExternalRender());
@@ -602,6 +706,14 @@ public class SmartPlayer extends Activity {
             	      libPlayer.SmartPlayerSetAudioOutputType(playerHandle, 0);
             	      
             	      libPlayer.SmartPlayerSetBuffer(playerHandle, playBuffer);
+            	      
+            	      libPlayer.SmartPlayerSetLowLatencyMode(playerHandle, isLowLatency?1:0);
+            	      
+            	      libPlayer.SmartPlayerSetRotation(playerHandle, rotate_degrees);
+            	         
+            	      
+            	      // set report download speed
+            	      //libPlayer.SmartPlayerSetReportDownloadSpeed(playerHandle, 1, 5);
             	      
             	      libPlayer.SmartPlayerSetFastStartup(playerHandle, isFastStartup?1:0);
             	      
@@ -630,6 +742,7 @@ public class SmartPlayer extends Activity {
             	        
             	      //playbackUrl = "rtsp://rtsp-v3-spbtv.msk.spbtv.com/spbtv_v3_1/214_110.sdp";
             	      
+            	      
 	              	  if(playbackUrl == null){
 	              		 Log.e(TAG, "playback URL with NULL..."); 
 	              		 return;
@@ -651,6 +764,7 @@ public class SmartPlayer extends Activity {
 	                  btnHardwareDecoder.setEnabled(false);
 	                  
 	                  btnSetPlayBuffer.setEnabled(false);
+	                  btnLowLatency.setEnabled(false);
                   	  btnFastStartup.setEnabled(false);
 	                  
 	              	  isPlaybackViewStarted = true;
@@ -737,7 +851,7 @@ public class SmartPlayer extends Activity {
     		}
     	}
 
-    	public void onNTRenderFrame()
+    	public void onNTRenderFrame(int width, int height, long timestamp)
     	{
     		 if( rgba_buffer_ == null )
     	            return;
@@ -749,6 +863,8 @@ public class SmartPlayer extends Activity {
     		 // test
     		// byte[] test_buffer = new byte[16];
     		// rgba_buffer_.get(test_buffer);
+    		 
+    		 Log.i(TAG, "RGBAExternalRender:onNTRenderFrame w=" + width + " h=" + height + " timestamp=" + timestamp);
     		 
     		 //Log.i(TAG, "RGBAExternalRender:onNTRenderFrame rgba:" + bytesToHexString(test_buffer));
     	}
@@ -789,8 +905,8 @@ public class SmartPlayer extends Activity {
     		v_row_bytes_ = ((width_+1)/2 + 15) & (~15);
     		
     		y_buffer_ = ByteBuffer.allocateDirect(y_row_bytes_*height_);
-    		u_buffer_ = ByteBuffer.allocateDirect(u_row_bytes_*(height_+1)/2);
-    		v_buffer_ = ByteBuffer.allocateDirect(v_row_bytes_*(height_+1)/2);
+    		u_buffer_ = ByteBuffer.allocateDirect(u_row_bytes_*((height_+1)/2));
+    		v_buffer_ = ByteBuffer.allocateDirect(v_row_bytes_*((height_+1)/2));
     		
     		Log.i(TAG, "I420ExternalRender::onNTFrameSizeChanged width_=" 
     		    + width_ + " height_=" + height_ 
@@ -843,7 +959,7 @@ public class SmartPlayer extends Activity {
     		}
     	}
 
-    	public void onNTRenderFrame()
+    	public void onNTRenderFrame(int width, int height, long timestamp)
     	{
     		if ( y_buffer_ == null )
     			return;
@@ -860,6 +976,9 @@ public class SmartPlayer extends Activity {
     		u_buffer_.rewind();
     		
     		v_buffer_.rewind();
+    		
+    		
+    		 Log.i(TAG, "I420ExternalRender::onNTRenderFrame w=" + width + " h=" + height + " timestamp=" + timestamp);
     		
     		 // copy buffer
     		
@@ -922,6 +1041,23 @@ public class SmartPlayer extends Activity {
                 		 Log.i(TAG, "截取快照失败。."); 
                 	 }
                 	 break;
+                	 
+                 case EVENTID.EVENT_DANIULIVE_ERC_PLAYER_START_BUFFERING:
+                	 Log.i(TAG, "Start_Buffering");
+                	 break;
+                	 
+                 case EVENTID.EVENT_DANIULIVE_ERC_PLAYER_BUFFERING:
+                	 Log.i(TAG, "Buffering:" + param1 + "%");
+                	 break;
+                	 
+                 case EVENTID.EVENT_DANIULIVE_ERC_PLAYER_STOP_BUFFERING:
+                	 Log.i(TAG, "Stop_Buffering");
+                	 break;
+                	 
+                 case EVENTID.EVENT_DANIULIVE_ERC_PLAYER_DOWNLOAD_SPEED:
+                	 Log.i(TAG, "download_speed:" + param1 + "Byte/s" + ", " + (param1*8/1000) + "kbps" + 
+                                ", " + (param1/1024) + "KB/s");
+                	 break;
              }
     	 }
     }
@@ -937,6 +1073,7 @@ public class SmartPlayer extends Activity {
              *  If with false: it will set with default surfaceView;	
              */
         	sSurfaceView = NTRenderer.CreateRenderer(this, true);
+        	
         }
         
         if(sSurfaceView == null)

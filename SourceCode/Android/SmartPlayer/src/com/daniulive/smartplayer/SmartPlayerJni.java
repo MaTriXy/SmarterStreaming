@@ -139,6 +139,36 @@ public class SmartPlayerJni {
 	  */
 	 public native int SmartPlayerSetFastStartup(long handle, int is_fast_startup);
 	 
+	 
+	 
+	 /**
+	  * Set low latency mode
+	  *
+	  * @param mode: if with 1, low latency mode, if with 0: normal mode
+	  *
+	  * @return {0} if successful
+	  */
+	 public native int SmartPlayerSetLowLatencyMode(long handle, int mode);
+	 
+	 
+	 /**
+	  * 设置顺时针旋转, 注意除了0度之外， 其他角度都会额外消耗性能
+	  * @param handle
+	  * @param degress： 当前支持 0度，90度, 180度, 270度 旋转
+	  * @return
+	  */
+	 public native int SmartPlayerSetRotation(long handle, int degress);
+	 	 
+	 
+	 /**
+	  * Set report download speed
+	  * 
+	  * @param handle
+	  * @param is_report: if with 1, it will report download speed, it with 0: does not it.
+	  * @param report_interval: report interval, unit is second, it must be greater than 0.
+	  * @return
+	  */
+	 public native int SmartPlayerSetReportDownloadSpeed(long handle, int is_report, int report_interval );
 	  	  	
 	 /**
 	 * Set playback orientation.
